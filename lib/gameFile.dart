@@ -42,13 +42,14 @@ class _mystate extends State<mystate> {
       val = 0;
       mvar = false;
       if (leftimage == rightimage) {
+        uc++;
+        if(uc>=5){
+          Navigator.push(context, MaterialPageRoute(builder: (context){return endgame(winner:1);},),);
+        }
         val = 1;
         up.add(Icon(Icons.mood,color: Colors.white70,size:35));
         down.add(Icon(Icons.mood_bad,color: Colors.black,size:35));
-        uc++;
-        if(uc==5){
-          Navigator.push(context, MaterialPageRoute(builder: (context){return endgame(winner:1);},),);
-        }
+        
 
       }
     });
@@ -64,13 +65,14 @@ class _mystate extends State<mystate> {
       val = 0;
       mvar = true;
       if (leftimage == rightimage) {
+        dc++;
+        if(dc>=5){
+          Navigator.push(context, MaterialPageRoute(builder: (context){return endgame(winner:2);},),);
+        }
         val = 2;
         down.add(Icon(Icons.mood,color: Colors.white70,size:35));
         up.add(Icon(Icons.mood_bad,color: Colors.black,size:35));
-        dc++;
-        if(dc==5){
-          Navigator.push(context, MaterialPageRoute(builder: (context){return endgame(winner:2);},),);
-        }
+        
       }
     });
   }
